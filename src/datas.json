@@ -1,0 +1,88 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Hamza Yuksel",
+    "coordinates": {
+      "x": 500.0,
+      "y": 250.0
+    },
+    "creationDate": "2025-02-10",
+    "price": 1500,
+    "discount": 20,
+    "comment": "SpecialGuest",
+    "type": "VIP",
+    "event": {
+      "name": "MUSIC",
+      "date": "2023-11-03T12:45:30+03:00[Europe/Istanbul]",
+      "eventType": "CONCERT"
+    }
+  },
+  "2": {
+    "id": 6,
+    "name": "hamza yeni",
+    "coordinates": {
+      "x": 121.0,
+      "y": 212.0
+    },
+    "creationDate": "2025-02-10",
+    "price": 1200,
+    "discount": 15,
+    "comment": null,
+    "type": "VIP",
+    "event": null
+  },
+  "4": {
+    "id": 7,
+    "name": "son deneme id icin",
+    "coordinates": {
+      "x": 50.0,
+      "y": 20.0
+    },
+    "creationDate": "2025-02-10",
+    "price": 11111,
+    "discount": 20,
+    "comment": "special guest",
+    "type": "VIP",
+    "event": {
+      "name": "MUSIC",
+      "date": "2023-11-03T12:45:30+03:00[Europe/Istanbul]",
+      "eventType": "CONCERT"
+    }
+  },
+  "5": {
+    "id": 8,
+    "name": "deneme",
+    "coordinates": {
+      "x": 50.0,
+      "y": 20.0
+    },
+    "creationDate": "2025-02-10",
+    "price": 111,
+    "discount": 20,
+    "comment": "special guest",
+    "type": "VIP",
+    "event": {
+      "name": "MUSIC",
+      "date": "2023-11-03T12:45:30+03:00[Europe/Istanbul]",
+      "eventType": "CONCERT"
+    }
+  },
+  "6": {
+    "id": 9,
+    "name": "deneme event idsiz",
+    "coordinates": {
+      "x": 50.0,
+      "y": 20.0
+    },
+    "creationDate": "2025-02-10",
+    "price": 111,
+    "discount": 20,
+    "comment": "special guest",
+    "type": "VIP",
+    "event": {
+      "name": "MUSIC",
+      "date": "2023-11-03T12:45:30+03:00[Europe/Istanbul]",
+      "eventType": "CONCERT"
+    }
+  }
+}
