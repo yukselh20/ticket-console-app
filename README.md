@@ -1,5 +1,3 @@
-Below is an example README.md for your project, which explains its purpose, features, design, and how it meets the requirements. You can customize it further as needed.
-
 ---
 
 # Ticket Collection Management Console Application
