@@ -10,4 +10,4 @@ yes
 MUSIC
 2023-11-03T12:45:30+03:00[Europe/Istanbul]
 CONCERT
-execute_script C:\Users\hamza\IdeaProjects\ticketApp\src\script.txt
+execute_script script.txt

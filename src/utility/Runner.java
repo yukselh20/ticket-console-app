@@ -19,6 +19,8 @@ public class Runner {
     private final Console console;
     private final CommandManager commandManager;
     private final List<String> scriptStack = new ArrayList<>();
+    private static final String SCRIPT_BASE_DIR = "C:\\Users\\hamza\\IdeaProjects\\ticketApp\\src\\";
+
 
     public Runner(Console console, CommandManager commandManager) {
         this.console = console;
@@ -55,6 +57,7 @@ public class Runner {
         String[] commandArgs;
         ExitCode code;
         scriptStack.add(fileName);
+        fileName = SCRIPT_BASE_DIR + fileName;
         if(!new File(fileName).exists()){
             fileName = "../" + fileName;
         }
@@ -77,6 +80,8 @@ public class Runner {
                 if(commandArgs[0].equals("execute_script")){
                     for(String script : scriptStack){
                         if(commandArgs[1].equals(script)) throw new ScriptRecursionException();
+                        // Bunu düzeltmek için, script dosyasının zaten scriptStack içindeyse
+                        // tekrar çalıştırılmamasını sağlamanız gerekir.
                     }
                 }
                 code = launchCommand(commandArgs);
