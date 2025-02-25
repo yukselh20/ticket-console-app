@@ -80,16 +80,18 @@ public class TicketForm {
             }
         }
 
-        Event event = null;
-        if (createEventInput.equals("yes")) {
-            event = new EventForm(console).build();
+        try { // Oluşturulan nesne doğrulanır.
+            return Ticket.createTicket(name, coordinates, price, discount, comment, type,
+                    createEventInput.equals("yes") ? new EventForm(console).build() : null);
+        } catch (IllegalArgumentException e) {
+            throw new InvalidFormException("Event failed validation: " + e.getMessage());
         }
 
-        Ticket ticket = new Ticket(name, coordinates, price, discount, comment, type, event);
-        if (!ticket.validate()) {
-            throw new InvalidFormException("Ticket did not pass validation.");
-        }
-        return ticket;
+//        Ticket ticket = new Ticket(name, coordinates, price, discount, comment, type, event);
+//        if (!ticket.validate()) {
+//            throw new InvalidFormException("Ticket did not pass validation.");
+//        }
+//        return ticket;
     }
 
     private String readNonEmptyString() throws IncorrectInputInScriptException {

@@ -1,13 +1,12 @@
 package models;
 
-import utility.Validatable;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
 /**
  * Event (etkinlik) sınıfı.
  */
-public class Event implements Validatable {
+public class Event {
     private final String name;             // null olamaz, boş olmamalı
     private final ZonedDateTime date;      // null olabilir
     private final EventType eventType;     // null olamaz
@@ -18,7 +17,7 @@ public class Event implements Validatable {
         this.eventType = eventType;
     }
     // Event nesnesi oluşturmak için factory metodu. static factory method, nesne oluşmadan
-    // önce gerekli doğrulamaları yapar ve nesne oluşturur.
+    // önce gerekli doğrulamaları yapar doğru ise nesne oluşturur.
     public static Event createEvent(String name, ZonedDateTime date, EventType eventType) {
         if (name == null || name.trim().isEmpty() || eventType == null) {
             throw new IllegalArgumentException("Invalid data for creating an Event");
@@ -29,10 +28,10 @@ public class Event implements Validatable {
     public String getName() { return name; }
 
 
-    @Override
-    public boolean validate() {
-        return name != null && !name.trim().isEmpty() && eventType != null;
-    }
+    // @Override
+    //public boolean validate() {
+    //    return name != null && !name.trim().isEmpty() && eventType != null;
+    //}
 
     @Override
     public String toString() {

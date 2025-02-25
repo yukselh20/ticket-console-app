@@ -25,8 +25,6 @@ public class CollectionManager {
     }
 
     public void initializeKeys() {
-        // Koleksiyondaki her Ticket nesnesine key değerini aktar
-        collection.forEach((key, ticket) -> ticket.setKey(key));
     }
 
     public String collectionType() { return collection.getClass().getName(); }
@@ -38,8 +36,9 @@ public class CollectionManager {
                 .findFirst().orElse(null);
     }
 
+
     public void addToCollection(Long key, Ticket ticket) {
-        ticket.setKey(key); // Key değerini Ticket nesnesine ata
+         // Key değerini Ticket nesnesine ata
         collection.put(key, ticket);
     }
 
@@ -69,8 +68,8 @@ public class CollectionManager {
 
     public String getAllTickets() {
         if(collection.isEmpty()) return "The collection is empty!";
-        return collection.values().stream()
-                .map(Ticket::toString)
+        return collection.entrySet().stream()
+                .map(entry -> "Key: " + entry.getKey() + " - " + entry.getValue())
                 .collect(Collectors.joining("\n\n"));
     }
 }

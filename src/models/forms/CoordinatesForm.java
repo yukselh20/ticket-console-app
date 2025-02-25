@@ -34,11 +34,18 @@ public class CoordinatesForm {
         console.println("Enter a coordinate Y (float, > -493):");
         float y = readFloatGreaterThan(-493, "The value must be greater than -493.");
 
-        Coordinates coordinates = new Coordinates(x, y);
-        if (!coordinates.validate()) {
+        try { //static Factory olayı tekrardan kullanıldı.
+            return Coordinates.createCoordinates(x, y);
+        } catch (IllegalArgumentException e) {
             throw new InvalidFormException("Coordinates did not pass validation.");
         }
-        return coordinates;
+
+
+//        Coordinates coordinates = new Coordinates(x, y);
+//        if (!coordinates.validate()) {
+//            throw new InvalidFormException("Coordinates did not pass validation.");
+//        }
+//        return coordinates;
     }
 
     private float readFloatGreaterThan(double limit, String errorMsg) throws IncorrectInputInScriptException {

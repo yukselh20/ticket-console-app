@@ -37,7 +37,8 @@ public class Insert extends Command {
             TicketForm form = new TicketForm(console);
 
             Ticket ticket = form.build(); // Yeni bir Ticket nesnesi oluştur
-            ticket.setKey(key); // Set the key for the Ticket
+            // Artık ticket.setKey(key) çağrısına gerek yok
+
             console.println("New Ticket created: " + ticket); // Kontrol için
 
             collectionManager.addToCollection(key, ticket); // Koleksiyona ekle

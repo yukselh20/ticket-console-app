@@ -11,7 +11,6 @@ import java.util.Objects;
 public class Ticket extends Element {
     private static int nextId = 1;
     private final int id;               // > 0, benzersiz, otomatik üretilir
-    private Long key;
     private String name;                // null olamaz, boş olmamalı
     private Coordinates coordinates;    // null olamaz
     private final LocalDate creationDate; // otomatik oluşturulur
@@ -55,21 +54,11 @@ public class Ticket extends Element {
         this.event = newTicket.event;
     }
 
-    public void setKey(Long key) {
-        this.key = key;
-    }
-
-
-    @Override
-    public boolean validate() {
-        return name != null && !name.trim().isEmpty() &&
-                coordinates != null && coordinates.validate() &&
-                creationDate != null &&
-                price > 0 &&
-                discount > 0 && discount <= 100 &&
-                (comment == null || comment.length() <= 631) &&
-                type != null &&
-                (event == null || event.validate());
+    public static Ticket createTicket(String name, Coordinates coordinates, int price, long discount, String comment, TicketType type, Event event) {
+        if (name == null || name.trim().isEmpty() || coordinates == null || price <= 0 || discount <= 0 || discount > 100 || type == null || (comment != null && comment.length() > 631)) {
+            throw new IllegalArgumentException("Invalid data for creating a Ticket");
+        }
+        return new Ticket(name, coordinates, price, discount, comment, type, event);
     }
 
     public static void updateNextId(LinkedHashMap<Long, Ticket> collection) {
@@ -86,8 +75,7 @@ public class Ticket extends Element {
 
     @Override
     public String toString() {
-        return "Ticket #" + (key != null ? key : "undefined") +
-                " [id " + id +
+        return "[id " + id +
                 ", name=" + name +
                 ", coordinates=" + coordinates +
                 ", creationDate=" + creationDate +
@@ -102,7 +90,6 @@ public class Ticket extends Element {
     public boolean equals(Object o) {
         return this == o || (o instanceof Ticket ticket && this.id == ticket.id);
     }
-
 
     @Override
     public int hashCode() {

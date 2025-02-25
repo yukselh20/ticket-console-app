@@ -19,7 +19,7 @@ public class Runner {
     private final Console console;
     private final CommandManager commandManager;
     private final List<String> scriptStack = new ArrayList<>();
-    private static final String SCRIPT_BASE_DIR = "C:\\Users\\hamza\\IdeaProjects\\ticketApp\\src\\";
+    private static final String SCRIPT_BASE_DIR = System.getProperty("user.dir") +File.separator + "src" + File.separator;
 
 
     public Runner(Console console, CommandManager commandManager) {

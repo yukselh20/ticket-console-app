@@ -1,6 +1,5 @@
 package models;
 
-import utility.Validatable;
 
 
 /**
@@ -9,12 +8,19 @@ import utility.Validatable;
  * @param x > -661
  * @param y null olamaz, > -493
  */
-public record Coordinates(float x, float y) implements Validatable {
+public record Coordinates(float x, float y) {
 
-    @Override
-    public boolean validate() {
-        return x > -661 && y > -493;
+    public static Coordinates createCoordinates(float x, float y) {
+        if (x <= -661 || y <= -493) {
+            throw new IllegalArgumentException("Invalid data for creating a Ticket");
+        }
+        return new Coordinates(x, y);
     }
+
+//    @Override
+//    public boolean validate() {
+//        return x > -661 && y > -493;
+//    }
 
     @Override
     public String toString() {
