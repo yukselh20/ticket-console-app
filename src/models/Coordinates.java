@@ -1,7 +1,4 @@
 package models;
-
-
-
 /**
  * Coordinates sınıfı.
  *
@@ -29,8 +26,9 @@ public record Coordinates(float x, float y) {
 
     @Override
     public boolean equals(Object o) {
-        return this == o || (o instanceof Coordinates(float px, float py) &&
-                Float.compare(this.x, px) == 0 &&
-                Float.compare(this.y, py) == 0);
+        if (this == o) return true;
+        if (!(o instanceof Coordinates that)) return false;
+        return Float.compare(this.x, that.x) == 0 &&
+                Float.compare(this.y, that.y) == 0;
     }
 }

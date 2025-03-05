@@ -24,7 +24,7 @@ public class CommandManager {
     public void addToHistory(String command) {
         commandHistory.add(command);
         if(commandHistory.size() > 5) {
-            commandHistory.removeFirst();
+            commandHistory.remove(0);
         }
     }
 

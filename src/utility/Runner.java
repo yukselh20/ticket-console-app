@@ -104,7 +104,7 @@ public class Runner {
             console.printError("Unforeseen mistake!");
             System.exit(0);
         } finally {
-            if(!scriptStack.isEmpty()) scriptStack.removeLast();
+            if (!scriptStack.isEmpty()) scriptStack.remove(scriptStack.size() - 1);
         }
         return ExitCode.ERROR;
     }
